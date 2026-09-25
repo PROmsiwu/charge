@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><meta name="theme-color" content="#0d1c17"/><title>LEVELUP مصر — الإدارة</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700" rel="stylesheet"><link rel="stylesheet" href="style.css"/></head>
+<body class="admin-body">
+  <main id="adminView">
+    <aside class="admin-sidebar"><a class="brand" href="index.html"><span class="brand-mark">L</span><span>LEVEL<span>UP</span></span></a><div class="admin-badge">لوحة التحكم <span>LIVE</span></div><nav><button class="side-link active" data-panel="overview">نظرة عامة</button><button class="side-link" data-panel="offersPanel">العروض</button><button class="side-link" data-panel="ordersPanel">الطلبات</button><button class="side-link" data-panel="usersPanel">المستخدمون</button><button class="side-link" data-panel="settingsPanel">الإعدادات</button></nav><a class="exit-admin back-link" href="index.html">← رجوع للمتجر</a></aside>
+    <section class="admin-main"><header class="admin-header"><div><span id="adminDate"></span><h1 id="adminTitle">نظرة عامة</h1></div><div class="admin-profile"><span class="admin-avatar">A</span><div><strong id="adminUserName">المسؤول</strong><small>مدير المنصة</small></div></div></header>
+      <div id="overview" class="admin-panel active"><div class="metrics"><article><span>إجمالي الطلبات</span><strong id="metricOrders">0</strong><small>آخر 250 طلب</small></article><article><span>قيد التنفيذ</span><strong id="metricPending">0</strong><small>تحتاج متابعة</small></article><article><span>إجمالي XP</span><strong id="metricXp">0</strong><small>طلبات مكتملة</small></article></div><div class="dashboard-grid"><section class="admin-card recent"><div class="card-head"><h3>آخر الطلبات</h3><button data-panel-trigger="ordersPanel">عرض الكل</button></div><div id="recentOrders"></div></section><section class="admin-card activity"><h3>مؤشر الإنجاز</h3><div class="completion-ring"><span id="completionRate">0%</span></div><p>نسبة الطلبات المكتملة</p><div class="legend"><span><i class="done-dot"></i> مكتمل</span><span><i class="pending-dot"></i> قيد التنفيذ</span></div></section></div></div>
+      <div id="offersPanel" class="admin-panel"><div class="panel-top"><p>عدّل العروض اللي بتظهر للعميل فوراً</p><button class="btn btn-primary small" id="addOfferBtn">+ عرض جديد</button></div><div class="admin-card table-card"><table><thead><tr><th>العرض</th><th>اللعبة</th><th>السعر</th><th>XP</th><th>الحالة</th><th></th></tr></thead><tbody id="offersTable"></tbody></table><p id="offersAdminEmpty" class="table-empty" hidden>مفيش عروض. حمّل العروض الأساسية من الإعدادات.</p></div></div>
+      <div id="ordersPanel" class="admin-panel"><div class="panel-top"><p>تابع طلبات الشحن وحدّث حالتها</p><select id="orderStatusFilter"><option value="all">كل الحالات</option><option value="pending">قيد التنفيذ</option><option value="completed">مكتمل</option></select></div><div class="admin-card table-card"><table><thead><tr><th>رقم الطلب</th><th>المستخدم</th><th>العرض</th><th>XP</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="ordersTable"></tbody></table><p id="ordersEmpty" class="table-empty" hidden>مفيش طلبات بالحالة دي.</p></div></div>
+      <div id="usersPanel" class="admin-panel"><div class="panel-top"><p>حسابات العملاء ونشاطهم</p></div><div class="admin-card table-card"><table><thead><tr><th>المستخدم</th><th>الطلبات</th><th>XP المكتمل</th><th>الحالة</th><th>إجراء</th></tr></thead><tbody id="usersTable"></tbody></table><p id="usersEmpty" class="table-empty" hidden>مفيش مستخدمين لسه.</p></div></div>
+      <div id="settingsPanel" class="admin-panel">
+        <div class="settings-grid">
+          <section class="admin-card setting-card">
+            <span class="setting-num">01</span>
+            <h3>رقم واتساب الطلبات</h3>
+            <p>العميل هيتحول للرقم ده لما يأكد الطلب.</p>
+            <form id="settingsForm">
+              <label>رقم واتساب الدولي<input id="whatsappNumber" inputmode="numeric" maxlength="15" placeholder="201000000000" required /></label>
+              <button class="btn btn-primary small" type="submit">حفظ الإعدادات</button>
+            </form>
+          </section>
+          
+          <!-- بطاقة تغيير صورة الموقع -->
+          <section class="admin-card setting-card">
+            <span class="setting-num">02</span>
+            <h3>صورة الموقع (معاينة جيل وجوجل)</h3>
+            <p>ضع رابط الصورة الرئسية للموقع لظهورها على جيل ومحركات البحث ومواقع التواصل.</p>
+            <form id="siteImageForm">
+              <label>رابط صورة الموقع (URL)<input id="siteImageUrl" type="url" placeholder="https://..." required /></label>
+              <div id="siteImagePreview" style="margin-top:10px; max-height: 100px; overflow:hidden; border-radius:6px; display:none;">
+                <img src="" id="previewImg" style="width:100%; object-fit:cover;" alt="المعاينة" />
+              </div>
+              <button class="btn btn-primary small" type="submit" style="margin-top:10px;">حفظ الصورة</button>
+            </form>
+          </section>
+
+          <section class="admin-card setting-card">
+            <span class="setting-num">03</span>
+            <h3>إعداد المتجر</h3>
+            <p>لو دي أول مرة، حمّل العروض الأساسية مرة واحدة على Firebase.</p>
+            <button class="btn btn-ghost small" id="seedOffers">تحميل العروض الأساسية</button>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="modal" id="offerModal" hidden><div class="modal-box"><button class="modal-close" data-close-modal aria-label="إغلاق">×</button><span class="section-kicker">إدارة العروض</span><h2 id="modalTitle">عرض جديد</h2><form id="offerForm"><input id="editOfferId" type="hidden"/><label>اسم العرض<input id="offerName" maxlength="60" required placeholder="مثال: 1000 شدة"/></label><label>اسم اللعبة<input id="offerGame" maxlength="60" required placeholder="مثال: PUBG Mobile"/></label><label>رابط صورة العرض<input id="offerImage" type="url" maxlength="500" placeholder="https://..."/></label><div class="form-grid"><label>السعر بالجنيه<input id="offerPrice" type="number" min="1" max="100000" required/></label><label>نقاط XP<input id="offerXp" type="number" min="0" max="100000" required/></label><label class="switch-label"><input id="offerActive" type="checkbox" checked /> ظاهر في المتجر</label></div><button class="btn btn-primary full" type="submit">حفظ العرض</button></form></div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div><script type="module" src="app.js"></script>
+</body></html>

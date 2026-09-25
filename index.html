@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081310" />
+  <meta name="description" content="LEVELUP مصر - شحن ألعاب سريع وآمن" />
+  <title>LEVELUP مصر — شحن الألعاب</title>
+
+  <!-- Open Graph / Meta tags ظهور الصورة على جوجل وفيسبوك وواتساب -->
+  <meta property="og:title" content="LEVELUP مصر — شحن الألعاب" />
+  <meta property="og:description" content="شحن ألعاب سريع وآمن في مصر" />
+  <meta property="og:image" id="ogImage" content="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" id="twitterImage" content="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas><div class="grain"></div>
+  <main id="shopView">
+    <nav class="nav wrap">
+      <a class="brand" href="#top" aria-label="LEVELUP مصر"><span class="brand-mark">L</span><span>LEVEL<span>UP</span></span></a>
+      <div class="nav-links"><a href="#offers">العروض</a><a href="#how">إزاي تشحن</a></div>
+      <button class="user-chip" data-scroll-order><span class="online-dot"></span><span id="navUser">سجّل طلبك</span></button>
+    </nav>
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow"><i></i> شحن ألعاب في مصر</div>
+        <h1>ارفع مستوى<br /><em>لعبك.</em></h1>
+        <p>اختار العرض، اكتب اسمك في اللعبة، وابعت الطلب. شحن سريع وواضح من غير لف ودوران.</p>
+        <div class="hero-actions"><a class="btn btn-primary" href="#offers">شوف العروض <b>↙</b></a><button class="btn btn-ghost" data-scroll-order>ابدأ طلب</button></div>
+        <div class="trust-row"><div><strong>+24K</strong><span>طلب مكتمل</span></div><div><strong>98.7%</strong><span>عملاء راضون</span></div><div><strong>&lt; 8 د</strong><span>متوسط التنفيذ</span></div></div>
+      </div>
+      <div class="scene" aria-label="وحدة تحكم ألعاب ثلاثية الأبعاد">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="platform"><div class="platform-top"></div></div>
+        <div class="controller"><span class="grip grip-left"></span><span class="grip grip-right"></span><span class="stick stick-left"></span><span class="stick stick-right"></span><span class="dpad"><b></b><b></b></span><span class="actions"><b></b><b></b><b></b><b></b></span><span class="controller-led"></span></div>
+        <div class="float-card card-a"><span class="mini-icon">XP</span><div><small>مستوى الحساب</small><strong>LEVEL 12</strong></div></div><div class="float-card card-b"><span class="mini-check">✓</span><div><small>عملية ناجحة</small><strong>تم الشحن</strong></div></div>
+      </div>
+    </section>
+    <section class="ticker"><div><span>شحن آمن</span><b>✦</b><span>تنفيذ سريع</span><b>✦</b><span>دعم متواصل</span><b>✦</b><span>نقاط XP مع كل شحنة</span><b>✦</b><span>شحن آمن</span><b>✦</b><span>تنفيذ سريع</span><b>✦</b></div></section>
+    <section class="offers wrap" id="offers"><div class="section-head"><div><span class="section-kicker">اختار لعبتك</span><h2>عروض معمولة <em>لك</em></h2></div><span class="offers-live"><i></i> تحديث مباشر</span></div><div class="offer-grid" id="offerGrid" aria-live="polite"></div><p id="offersEmpty" class="empty-state" hidden>العروض بتتجهز دلوقتي. ارجع جرّب بعد شوية.</p></section>
+    <section class="order-section wrap" id="order"><div class="order-art"><div class="order-orbit orbit-a"></div><div class="order-orbit orbit-b"></div><div class="order-cube"><span>XP</span></div><h2>كل شحنة<br />ترفع <em>رصيدك</em></h2><p>كل طلب مكتمل بيزود نقاط XP بتاعتك تلقائياً.</p><div class="xp-pills"><span>+120 XP</span><span>رتبة فضية</span></div></div><div class="order-box"><div class="order-box-title"><span>01</span><div><small>خطوة سريعة</small><h3>بيانات طلبك</h3></div></div><form id="orderForm"><label>اسم المستخدم جوه اللعبة<input id="username" name="username" autocomplete="username" minlength="3" maxlength="32" placeholder="مثال: user:Gamer_Pro or id : 1268133713 " required /></label><label>اختار العرض<select id="offerSelect" name="offer" required><option value="">جاري تحميل العروض...</option></select></label><div class="order-summary"><span>قيمة الطلب</span><strong id="orderPrice">—</strong></div><button class="btn btn-primary full" id="orderSubmit" type="submit">أكد وافتح واتساب <b>↙</b></button><p class="form-note">الطلب بيتسجل الأول، وبعدها واتساب بيفتح بالرسالة الجاهزة.</p></form></div></section>
+    <section class="how wrap" id="how"><span class="section-kicker">خطوات واضحة</span><h2>من الاختيار للشحن<br /><em>في 3 خطوات.</em></h2><div class="steps"><article><span>01</span><h3>حدد العرض</h3><p>اختار باقة الشحن المناسبة للعبة اللي عايزها.</p></article><article><span>02</span><h3>اكتب معرفك</h3><p>اكتب اسم المستخدم صح عشان الشحن يوصل لحسابك.</p></article><article><span>03</span><h3>ابعت الطلب</h3><p>واتساب هيفتح برسالة فيها كل تفاصيل طلبك.</p></article></div></section>
+    <footer class="wrap"><a class="brand" href="#top"><span class="brand-mark">L</span><span>LEVEL<span>UP</span></span></a><p>شحن ألعاب سريع للاعبين اللي عايزين يكملوا لعب.</p><span>LEVELUP مصر</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

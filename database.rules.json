@@ -1,0 +1,31 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "offers": {
+      ".read": true,
+      "$offerId": {
+        ".write": true,
+        ".validate": "!newData.exists() || (newData.hasChildren(['id', 'game', 'name', 'price', 'xp', 'active']) && newData.child('id').val() === $offerId && newData.child('game').isString() && newData.child('name').isString() && newData.child('price').isNumber() && newData.child('price').val() >= 0 && newData.child('xp').isNumber() && newData.child('xp').val() >= 0 && newData.child('active').isBoolean())"
+      }
+    },
+    "settings": {
+      ".read": true,
+      ".write": true
+    },
+    "orders": {
+      ".read": true,
+      "$orderId": {
+        ".write": "newData.exists() && (data.exists() || !root.child('bannedUsernames').child(newData.child('usernameKey').val()).exists())",
+        ".validate": "newData.hasChildren(['orderNo', 'username', 'usernameKey', 'offerId', 'game', 'offerName', 'price', 'xp', 'status', 'createdAt']) && newData.child('orderNo').isString() && newData.child('username').isString() && newData.child('username').val().length >= 3 && newData.child('username').val().length <= 32 && newData.child('usernameKey').isString() && newData.child('offerId').isString() && root.child('offers').child(newData.child('offerId').val()).exists() && newData.child('game').val() === root.child('offers').child(newData.child('offerId').val()).child('game').val() && newData.child('offerName').val() === root.child('offers').child(newData.child('offerId').val()).child('name').val() && newData.child('price').val() === root.child('offers').child(newData.child('offerId').val()).child('price').val() && newData.child('xp').val() === root.child('offers').child(newData.child('offerId').val()).child('xp').val() && (newData.child('status').val() === 'pending' || newData.child('status').val() === 'completed')"
+      }
+    },
+    "bannedUsernames": {
+      ".read": true,
+      "$usernameKey": {
+        ".write": true,
+        ".validate": "!newData.exists() || newData.val() === true"
+      }
+    }
+  }
+}
